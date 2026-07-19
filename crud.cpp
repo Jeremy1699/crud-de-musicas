@@ -4,7 +4,7 @@
 #include "crud.h"
 
 using namespace std;
-//Aca ponemos unas canciones x default
+//Aca ponemos unas canciones por default         
 vector<Cancion> listaCanciones = {
 	{1, "Bohemian_Rhapsody", "Queen", "Rock"},
 	{2, "Shape_of_You", "Ed_Sheeran", "Pop"},
