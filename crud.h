@@ -6,7 +6,7 @@
 
 using namespace std;
 
-
+//Se fue creando el void de cada funcion y para que va a servir 
 void crearArchivo(const string& ruta);
 void guardar(vector<Cancion> lista, string ruta);
 vector<Cancion> leer(const string& ruta);
