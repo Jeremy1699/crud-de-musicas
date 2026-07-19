@@ -1,0 +1,15 @@
+{
+    "breakpoints": [
+        {
+            "breakpoint_type": 0,
+            "condition": "",
+            "enabled": true,
+            "filename": "crud.h",
+            "line": 8,
+            "timestamp": "1783387722530"
+        }
+    ],
+    "timestamp": "1784432476621",
+    "watchvars": [
+    ]
+}

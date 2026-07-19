@@ -1,0 +1,42 @@
+[
+    {
+        "caretX": 2,
+        "caretY": 11,
+        "filename": "C:/Users/JEREMY/OneDrive/Desktop/proyecto programacion_Armas_Medranda_Gonzales/main.cpp",
+        "focused": false,
+        "isOpen": true,
+        "left": 0,
+        "order": 2,
+        "top": 0
+    },
+    {
+        "caretX": 1,
+        "caretY": 1,
+        "filename": "C:/Users/JEREMY/OneDrive/Desktop/proyecto programacion_Armas_Medranda_Gonzales/crud.h",
+        "focused": false,
+        "isOpen": true,
+        "left": 0,
+        "order": 3,
+        "top": 0
+    },
+    {
+        "caretX": 1,
+        "caretY": 1,
+        "filename": "C:/Users/JEREMY/OneDrive/Desktop/proyecto programacion_Armas_Medranda_Gonzales/Cancion.h",
+        "focused": true,
+        "isOpen": true,
+        "left": 0,
+        "order": 0,
+        "top": 0
+    },
+    {
+        "caretX": 2,
+        "caretY": 139,
+        "filename": "C:/Users/JEREMY/OneDrive/Desktop/proyecto programacion_Armas_Medranda_Gonzales/crud.cpp",
+        "focused": false,
+        "isOpen": true,
+        "left": 0,
+        "order": 1,
+        "top": 0
+    }
+]

@@ -1,0 +1,41 @@
+# Project: PROYECTO CRUD
+# Makefile created by Red Panda C++ 3.4.3279
+
+CXX      = "g++.exe"
+CC       = "gcc.exe"
+WINDRES  = "windres.exe"
+RM       = del /q /f
+CD       = cd /d
+LIBS     = "-Wl,--stack,12582912"
+INCS     = 
+CXXINCS  = 
+CXXFLAGS = $(CXXINCS) "-g3" "-fno-ms-extensions" "-pipe" "-Wall" "-Werror=return-type" "-Werror=vla" "-D_DEBUG"
+CFLAGS   = $(INCS) "-g3" "-fno-ms-extensions" "-pipe" "-Wall" "-Werror=implicit-int" "-Werror=return-type" "-Werror=vla" "-D_DEBUG"
+NASM_FLAGS   =  "-f" "elf64" "-g"
+WINDRESFLAGS = 
+RES      = PROYECTO_CRUD_private.res
+OBJ      = main.o crud.o $(RES)
+BIN      = PROYECTO\ CRUD.exe
+LINKOBJ  = "main.o" "crud.o" "PROYECTO_CRUD_private.res"
+CLEANOBJ = "main.o" "crud.o" "PROYECTO_CRUD_private.res" "PROYECTO CRUD.exe"
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before $(BIN) all-after
+
+clean: clean-custom
+	-$(RM) $(CLEANOBJ) >NUL 2>&1
+
+PROYECTO\ CRUD.exe: $(OBJ)
+
+	$(CXX) $(LINKOBJ) -o "PROYECTO CRUD.exe" $(LIBS)
+
+main.o: main.cpp crud.h Cancion.h
+	$(CXX) -c "main.cpp" -o "main.o" $(CXXFLAGS) 
+
+crud.o: crud.cpp crud.h Cancion.h
+	$(CXX) -c "crud.cpp" -o "crud.o" $(CXXFLAGS)  -finput-charset=UTF-8 -fexec-charset=windows-1252
+
+PROYECTO_CRUD_private.res: PROYECTO_CRUD_private.rc 
+	$(WINDRES) -i "PROYECTO_CRUD_private.rc" --input-format=rc -o "PROYECTO_CRUD_private.res" -O coff $(WINDRESFLAGS) 
+
