@@ -7,8 +7,10 @@ int main() {
 	int opcion = -1;
 	Cancion can;
 	string rutaArchivo = "C:/Users/JEREMY/Downloads/crudProyecto.txt";  
+	//Se establece una ruta para el archivo txt
 	int idBuscar = 0;
-	
+
+	//Se establece el menu del archivo en c++
 	crearArchivo(rutaArchivo);
 	while (opcion != 0) {
 		cout << "\n\n=== REPRODUCTOR DE MUSICA ESFOT ===" << endl;
