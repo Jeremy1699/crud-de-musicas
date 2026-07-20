@@ -11,11 +11,14 @@ vector<Cancion> listaCanciones = {
 	{3, "Hotel_California", "Eagles", "Rock"}
 };
 
+// Permite imprimir directamente una canción 
 ostream& operator<<(ostream& os, const Cancion& c) {
 	os << c.id << " " << c.nombre << " " << c.artista << " " << c.genero << endl;
 	return os;
 }
 
+
+// Recorre e imprime todas las canciones 
 ostream& operator<<(ostream& os, const vector<Cancion>& canciones) {
 	for (const auto& c : canciones) {
 		os << c;
@@ -23,11 +26,13 @@ ostream& operator<<(ostream& os, const vector<Cancion>& canciones) {
 	return os;
 }
 
+// Permite leer las propiedades separadas por desde un archivo 
 istream& operator>>(istream& is, Cancion& c) {
 	is >> c.id >> c.nombre >> c.artista >> c.genero;
 	return is;
 }
 
+// Lee el archivo de forma continua hasta llegar al final (EOF) y llena el vector.
 istream& operator>>(istream& is, vector<Cancion>& canciones) {
 	Cancion c;
 	while (is >> c) {
@@ -36,6 +41,7 @@ istream& operator>>(istream& is, vector<Cancion>& canciones) {
 	return is;
 }
 
+// Guarda la lista completa de canciones en el disco
 void guardar(vector<Cancion> lista, string ruta) {
 	ofstream archivo(ruta);
 	if (archivo.is_open()) {
@@ -47,6 +53,7 @@ void guardar(vector<Cancion> lista, string ruta) {
 	}
 }
 
+// Lee todas las canciones almacenadas en el archivo 
 vector<Cancion> leer(const string& ruta) {
 	vector<Cancion> cancionesLeidas;
 	ifstream archivoEntrada(ruta);
@@ -59,10 +66,12 @@ vector<Cancion> leer(const string& ruta) {
 	return cancionesLeidas;
 }
 
+// Busca una canción específica por su ID. Retorna un objeto con ID -1 si no se encuentra.
 Cancion buscar(int id, const string& ruta) {
 	Cancion cancionB;
 	cancionB.id = -1; 
 	cancionB.nombre = "No encontrado";
+	// Búsqueda lineal en el vector devuelto por el archivo
 	for (const auto& can : leer(ruta)) {
 		if (id == can.id) {
 			cancionB = can; 
@@ -72,8 +81,10 @@ Cancion buscar(int id, const string& ruta) {
 	return cancionB;    
 }
 
+// Inserta una nueva canción al archivo validando el ID 
 void agregar(const Cancion& nuevaCancion, const string& ruta) {
 	vector<Cancion> lista = leer(ruta);
+	// find_if busca un elemento que cumpla con la condición de la función lambda (mismo ID)
 	auto it = find_if(lista.begin(), lista.end(),
 					  [&](const Cancion& c) { return c.id == nuevaCancion.id; });
 	
@@ -86,8 +97,10 @@ void agregar(const Cancion& nuevaCancion, const string& ruta) {
 	guardar(lista, ruta);
 }
 
+// Elimina una canción del archivo buscando por su ID único.
 void eliminar(int id, const string& ruta) {
 	vector<Cancion> lista = leer(ruta);
+// remove_if desplaza los elementos a eliminar al final del vector y retorna un iterador al inicio de estos
 	auto it = remove_if(lista.begin(), lista.end(),
 						[&](const Cancion& c) { return c.id == id; });
 	if (it != lista.end()) {
@@ -99,8 +112,10 @@ void eliminar(int id, const string& ruta) {
 	guardar(lista, ruta);
 }
 
+// Modifica los datos de una canción existente manteniendo el mismo ID.
 void actualizar(const Cancion& cancionActualizada, const string& ruta) {
 	vector<Cancion> listaLocal = leer(ruta);
+	// Localiza la posición de la canción que se desea modificar
 	auto it = find_if(listaLocal.begin(), listaLocal.end(),
 					  [&](const Cancion& c) { return c.id == cancionActualizada.id; });
 	
@@ -115,6 +130,7 @@ void actualizar(const Cancion& cancionActualizada, const string& ruta) {
 	guardar(listaLocal, ruta);
 } 
 
+// Muestra en consola la lista completa de canciones formateadas de forma amigable.
 void verTodas(const string& ruta) {
 	vector<Cancion> lista = leer(ruta);
 	if (lista.empty()) {
@@ -126,6 +142,7 @@ void verTodas(const string& ruta) {
 	}
 }
 
+// Inicializa el entorno de datos, si el archivo no existe, crea uno nuevo con la lista por defecto
 void crearArchivo(const string& ruta) {
 	ifstream archivoPrueba(ruta);
 	if (!archivoPrueba.is_open()) {
