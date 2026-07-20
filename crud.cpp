@@ -4,21 +4,21 @@
 #include "crud.h"
 //Gonzalez Alejandro
 using namespace std;
-//Aca ponemos unas canciones por default         
+//Aca ponemos unas canciones por default       #comentado por ALEJANDRO GONZALES       
 vector<Cancion> listaCanciones = {
 	{1, "Bohemian_Rhapsody", "Queen", "Rock"},
 	{2, "Shape_of_You", "Ed_Sheeran", "Pop"},
 	{3, "Hotel_California", "Eagles", "Rock"}
 };
 
-// Permite imprimir directamente una canción 
+// Permite imprimir directamente una canción #comentado por ALEJANDRO GONZALES    
 ostream& operator<<(ostream& os, const Cancion& c) {
 	os << c.id << " " << c.nombre << " " << c.artista << " " << c.genero << endl;
 	return os;
 }
 
 
-// Recorre e imprime todas las canciones 
+// Recorre e imprime todas las canciones #comentado por ALEJANDRO GONZALES    
 ostream& operator<<(ostream& os, const vector<Cancion>& canciones) {
 	for (const auto& c : canciones) {
 		os << c;
