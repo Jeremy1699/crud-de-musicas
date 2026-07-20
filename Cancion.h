@@ -5,14 +5,14 @@
 
 using namespace std;
 
-//Se crea la estructura de la cancion en C++
+//Se crea la estructura de la cancion en C++ #comentado por ALLAN ARMAS
 struct Cancion {   
 	int id;   
 	string nombre; 
 	string artista;
 	string genero;
 
-//Se crea el constructor de la cancion
+//Se crea el constructor de la cancion #comentado por ALLAN ARMAS
 	string mostrar() const {
 		ostringstream oss;
 		oss << "ID: " << id << ", Nombre: " << nombre << ", Artista: "
