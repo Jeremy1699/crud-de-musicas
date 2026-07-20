@@ -6,29 +6,29 @@
 #include <string>
 
 using namespace std;
-
+// Constructor: Se ejecuta al abrir la ventana principal #Comentado por Jeremy Medranda
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
 
-
+// 1. Configuración de la ruta del archivo de texto #Comentado por Jeremy Medranda
     rutaArchivo = "C:/Users/JEREMY/Downloads/crudProyecto.txt";
 
 
     crearArchivo(rutaArchivo);
-
+// 2. Configuración visual de la tabla (columnas y cabeceras)#Comentado por Jeremy Medranda
     ui->tablaCanciones->setColumnCount(4);
     QStringList headers = {"ID", "Nombre", "Artista", "Género"};
     ui->tablaCanciones->setHorizontalHeaderLabels(headers);
     ui->tablaCanciones->horizontalHeader()->setStretchLastSection(true);
     ui->tablaCanciones->setAlternatingRowColors(true);
-
+// 3. Cargar los datos iniciales en la tabla#Comentado por Jeremy Medranda
 
     onMostrarTodoClicked();
 
-
+// 4. Conexión de los botones (Señales y Slots)#Comentado por Jeremy Medranda
     connect(ui->btnAgregar, &QPushButton::clicked, this, &MainWindow::onAgregarClicked);
     connect(ui->btnActualizar, &QPushButton::clicked, this, &MainWindow::onActualizarClicked);
     connect(ui->btnBuscar, &QPushButton::clicked, this, &MainWindow::onBuscarClicked);
